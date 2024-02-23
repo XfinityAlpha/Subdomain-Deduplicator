@@ -44,6 +44,6 @@ async def main():
 asyncio.run(main())
 
 print("-------------------------------------------")
-print("[-] Done Writing to unique_subdomains.txt")
+print("[-] DONE writing to unique_subdomains.txt")
 with open("unique_subdomains.txt", 'w+') as fh:
     fh.write('\n'.join(unique_subdomains))  # Write unique subdomains to the file
