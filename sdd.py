@@ -18,9 +18,13 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 SubdomainDeduplicator : A tool to efficiently remove duplicate subdomains from multiple files.
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<< Usage >>
 
-Usage - 1 : python3 sdd.py file1.txt file2.txt fileN.txt /path/to/directory
-Usage - 2 : python3 sdd.py /path/to/directory # Directory Containing Files
+1 - To search within text (txt) files only:
+    python3 sdd.py file1.txt file2.txt fileN.txt
+
+2 - To search within a directory containing (txt) files only:
+    python3 sdd.py /path/to/directory # Directory Containing Files
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX         
 """)
