@@ -21,3 +21,8 @@ To search within text (txt) files only:
 ```bash
 python3 sdd.py file1.txt file2.txt fileN.txt
 ```
+To search within a directory containing (txt) files only:
+```bash
+python3 sdd.py /path/to/directory
+```
+
