@@ -20,7 +20,7 @@ SubdomainDeduplicator : A tool to efficiently remove duplicate subdomains from m
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 Usage - 1 : python3 sdd.py file1.txt file2.txt fileN.txt /path/to/directory
-Usage - 2 : python3 /path/to/directory # Directory Containing Files
+Usage - 2 : python3 sdd.py /path/to/directory # Directory Containing Files
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX         
 """)
