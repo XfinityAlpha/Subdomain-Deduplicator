@@ -1,11 +1,10 @@
 import sys
+import os
 import asyncio
 import aiofiles
 
 if len(sys.argv) == 1 or sys.argv[1] == '-h':
-
     print("""
-
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
    _____       __        __                      _                   ____           __            ___            __            
   / ___/__  __/ /_  ____/ /___  ____ ___  ____ _(_)___              / __ \___  ____/ /_  ______  / (_)________ _/ /_____  _____
@@ -20,16 +19,14 @@ SubdomainDeduplicator : A tool to efficiently remove duplicate subdomains from m
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-Usage : python3 sdd.py file1.txt file2.txt fileN.txt
+Usage - 1 : python3 sdd.py file1.txt file2.txt fileN.txt /path/to/directory
+Usage - 2 : python3 /path/to/directory # Directory Containing Files
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX         
 """)
-
     exit()
 
-
-
-# Use a set comprehension to store unique subdomains
+# Use a set to store unique subdomains
 unique_subdomains = set()
 
 async def process_file(filename):
@@ -39,7 +36,15 @@ async def process_file(filename):
             unique_subdomains.add(subdomain.strip())
 
 async def main():
-    await asyncio.gather(*(process_file(filename) for filename in sys.argv[1:]))
+    for arg in sys.argv[1:]:
+        if os.path.isdir(arg):
+            # If argument is a directory, process all .txt files within it
+            for root, _, files in os.walk(arg):
+                for file in files:
+                    if file.endswith('.txt'):
+                        await process_file(os.path.join(root, file))
+        else:
+            await process_file(arg)
 
 asyncio.run(main())
 
